@@ -6,18 +6,20 @@
 	<script src="https://unpkg.com/vue@latest"></script>
 </head>
 <body>
-	<div id="app">
-		{{ message }}
+	<div id="content" class="content">
+		<h1>{{pagetitle}}</h1>
+		<p>{{content}}</p>
 	</div>
 
 	<script>
-		// Initialize a new Vue instance
-		new Vue({
-			el: '#app',
-			data: {
-				message: 'Hello, world!'
+		Vue.createApp({
+			data() {
+				return {
+					pagetitle: 'Hello World',
+					content: 'This is my first Vue.js app'
+				}
 			}
-		});
+		}).mount('#content')
 	</script>
 </body>
 </html>
