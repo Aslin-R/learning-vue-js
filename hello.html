@@ -9,6 +9,7 @@
 	<div id="content" class="content">
 		<h1>{{pagetitle}}</h1>
 		<p>{{content}}</p>
+		<h5>{{message}}</h5>
 	</div>
 
 	<script>
@@ -16,7 +17,8 @@
 			data() {
 				return {
 					pagetitle: 'Hello World',
-					content: 'This is my first Vue.js app'
+					content: 'This is my first Vue.js app',
+					message:'Jesus loves you!'
 				}
 			}
 		}).mount('#content')
