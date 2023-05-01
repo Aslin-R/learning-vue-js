@@ -27,6 +27,13 @@
 
 	<script>
 		Vue.createApp({
+			data(){
+				return{
+					links:['Home','About','Contact']
+				}
+			}
+		}).mount('nav')
+		Vue.createApp({
 			data() {
 				return {
 					pagetitle: 'Hello World',
@@ -35,13 +42,7 @@
 				}
 			}
 		}).mount('#content')
-		Vue.createApp({
-			data(){
-				return{
-					links:['Home','About','Contact']
-				}
-			}
-		}).mount('#navba')
+		
 	</script>
 </body>
 </html>
