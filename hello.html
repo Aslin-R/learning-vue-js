@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Vue.js App</title>
+	<!-- Load Vue.js from CDN -->
+	<script src="https://unpkg.com/vue@latest"></script>
+</head>
+<body>
+	<div id="app">
+		{{ message }}
+	</div>
+
+	<script>
+		// Initialize a new Vue instance
+		new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello, world!'
+			}
+		});
+	</script>
+</body>
+</html>
