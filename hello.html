@@ -27,26 +27,21 @@
 	</div>
 
 	<script>
+
 		Vue.createApp({
-			data(){
-				return{
+			data() {
+				return {
 					links:[
 					{text:'Home',url:'home.html'},
 					{text:'About',url:'about.html'},
 					{text:'Contact',url:'contact.html'},
-					]
-				}
-			}
-		}).mount('nav')
-		Vue.createApp({
-			data() {
-				return {
+					],
 					pagetitle: 'Hello World',
 					content: 'This is my first Vue.js app',
 					message:'Jesus loves you!'
 				}
 			}
-		}).mount('#content')
+		}).mount('body')
 		
 	</script>
 </body>
