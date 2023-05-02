@@ -13,17 +13,16 @@
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">My Vue</a>
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li v-for="(link,index) in links" class="nav-item" :key="index">
+				<li v-for="(page,index) in pages" class="nav-item" :key="index">
 					<!-- v-bind:href='home.html' -->
-					<a :href='link.url' v-bind:title="`This is a ${link.text} page`" class="nav-link">{{ link.text }}</a>
+					<a :href='page.link.url' v-bind:title="`This is a ${page.link.text} page`" class="nav-link">{{ page.link.text }}</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
-	<div id="content" class="content">
+	<div class="content">
 		<h1>{{pagetitle}}</h1>
 		<p>{{content}}</p>
-		<h5>{{message}}</h5>
 	</div>
 
 	<script>
@@ -31,14 +30,24 @@
 		Vue.createApp({
 			data() {
 				return {
-					links:[
-					{text:'Home',url:'home.html'},
-					{text:'About',url:'about.html'},
-					{text:'Contact',url:'contact.html'},
-					],
-					pagetitle: 'Hello World',
-					content: 'This is my first Vue.js app',
-					message:'Jesus loves you!'
+					pages:[
+						{
+							link:{text:'Home',url:'home.html'},
+							pagetitle:'Home Page',
+							content:'This is the home page'
+						},
+						{
+							link:{text:'About',url:'about.html'},
+							pagetitle:'About Page',
+							content:'This is the about page'
+						},
+						{
+							link:{text:'Contact',url:'contact.html'},
+							pagetitle:'Contact Page',
+							content:'This is the contact page'
+						}
+						]
+					
 				}
 			}
 		}).mount('body')
