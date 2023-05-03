@@ -8,69 +8,60 @@
 	<script src="https://unpkg.com/vue@latest"></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg "
-	:class="{navbarClasses}">
+	<nav class="navbar navbar-expand-lg" :class="{ 'navbar-dark': !useDarkNavbar, 'navbar-light': useDarkNavbar, 'bg-light': useDarkNavbar, 'bg-dark': !useDarkNavbar }">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">My Vue</a>
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li v-for="(page,index) in pages" class="nav-item" :key="index">
-					<!-- v-bind:href='home.html' -->
-					<a 
-					:href='page.link.url' 
-					v-bind:title="`This is a ${page.link.text} page`"
-					 class="nav-link"
-					 :class="{active:activepage==index}"
-					 @click.prevent="activepage=index"
-					>{{ page.link.text }}</a>
+				<li v-for="(page, index) in pages" class="nav-item" :key="index">
+					<a :href="page.link.url" :title="`This is a ${page.link.text} page`" class="nav-link" :class="{ active: activepage === index }" @click.prevent="activepage = index">{{ page.link.text }}</a>
 				</li>
 			</ul>
 			<form class="d-flex" >
-				<button class="btn btn-primary" @click.prevent="useDarkNavbar=!useDarkNavbar">Toggle</button>
+				<button class="btn btn-primary" @click.prevent="useDarkNavbar = !useDarkNavbar">Toggle</button>
 			</form>
 		</div>
 	</nav>
 	<div class="content">
-		<h1>{{pages[activepage].pagetitle}}</h1>
-		<p>{{content}}</p>
+		<h1>{{ pages[activepage].pagetitle }}</h1>
+		<p>{{ pages[activepage].content }}</p>
 	</div>
 
 	<script>
-
 		Vue.createApp({
-			computed :{},
 			data() {
 				return {
-					activepage : 0,
+					activepage: 0,
 					useDarkNavbar: false,
-					navbarClasses:{
-						'navbar-dark' : !this.useDarkNavbar,
-						'navbar-light' : this.useDarkNavbar,
-						 'bg-light' : this.useDarkNavbar,
-						 'bg-dark' : !this.useDarkNavbar,
-					},
-					pages:[
-					
+					pages: [
 						{
-							link:{text:'Home',url:'home.html'},
-							pagetitle:'Home Page',
-							content:'This is the home page'
+							link: { text: 'Home', url: 'home.html' },
+							pagetitle: 'Home Page',
+							content: 'This is the home page'
 						},
 						{
-							link:{text:'About',url:'about.html'},
-							pagetitle:'About Page',
-							content:'This is the about page'
+							link: { text: 'About', url: 'about.html' },
+							pagetitle: 'About Page',
+							content: 'This is the about page'
 						},
 						{
-							link:{text:'Contact',url:'contact.html'},
-							pagetitle:'Contact Page',
-							content:'This is the contact page'
+							link: { text: 'Contact', url: 'contact.html' },
+							pagetitle: 'Contact Page',
+							content: 'This is the contact page'
 						}
-						]
-					
+					]
+				}
+			},
+			computed: {
+				navbarClasses() {
+					return {
+						'navbar-dark': !this.useDarkNavbar,
+						'navbar-light': this.useDarkNavbar,
+					 	'bg-light': this.useDarkNavbar,
+					 	'bg-dark': !this.useDarkNavbar
+					}
 				}
 			}
 		}).mount('body')
-		
 	</script>
 </body>
 </html>
