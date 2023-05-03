@@ -26,7 +26,7 @@
 			</ul>
 			<form class="d-flex" >
 				<button class="btn btn-primary" 
-				@click.prevent="theme = theme == 'light' ? 'dark' : 'light' ">Toggle</button>
+				@click.prevent="changeTheme()">Toggle</button>
 			</form>
 		</div>
 	</nav>
@@ -72,6 +72,18 @@
 						}
 						]
 					
+				}
+			},
+			methods:{
+				changeTheme(){
+					let theme1= 'light'
+					if(this.theme=='light'){
+						theme1='dark'
+					}
+					else{
+						theme1='light'
+					}
+					this.theme=theme1
 				}
 			}
 		}).mount('body')
